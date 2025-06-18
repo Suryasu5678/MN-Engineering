@@ -16,28 +16,37 @@ export default function Dashboard({ onLogout }) {
   );
 
   return (
-    <div className="p-6">
-      <header className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Shift Scheduler</h1>
+    <div className="min-h-screen bg-gray-50">
+      <header className="flex justify-between items-center mb-10  bg-gradient-to-r from-blue-600 to-indigo-600 text-white  px-6 py-8 shadow-lg">
+        <h1 className="text-3xl font-bold tracking-wide">🗓️ Shift Scheduler</h1>
         <button
           onClick={onLogout}
-          className="px-4 py-2 bg-red-600 text-white rounded cursor-pointer hover:bg-red-400"
+          className="px-5 py-2 rounded-md bg-[#DC2626] hover:bg-[#B91C1C] border-white-500 border-1 text-white-700 font-semibold shadow cursor-pointer transition duration-200"
         >
           Logout
         </button>
       </header>
-      <ShiftForm onSave={addShift} />
-      <FilterBar
-        role={filterRole}
-        day={filterDay}
-        setRole={setFilterRole}
-        setDay={setFilterDay}
-      />
-      <ShiftTable
-        shifts={filtered}
-        onUpdate={updateShift}
-        onDelete={deleteShift}
-      />
+
+      <div className="bg-white p-6 rounded-xl shadow-md mb-6">
+        <ShiftForm onSave={addShift} />
+      </div>
+
+      <div className="bg-white p-4 rounded-xl shadow-sm mb-6">
+        <FilterBar
+          role={filterRole}
+          day={filterDay}
+          setRole={setFilterRole}
+          setDay={setFilterDay}
+        />
+      </div>
+
+      <div className="bg-white p-4 rounded-xl shadow-md">
+        <ShiftTable
+          shifts={filtered}
+          onUpdate={updateShift}
+          onDelete={deleteShift}
+        />
+      </div>
     </div>
   );
 }
