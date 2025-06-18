@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import bgImage from "../assets/astronaut-destiny-walking-the-unknown-2r-3840x2160.jpg";
+
 
 export default function Login({ onLogin }) {
   const [user, setUser] = useState("");
@@ -18,8 +20,7 @@ export default function Login({ onLogin }) {
     <div
       className="min-h-screen flex items-center justify-center "
       style={{
-        backgroundImage:
-          "url('src/assets/astronaut-destiny-walking-the-unknown-2r-3840x2160.jpg')",
+        backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "100vh",
