@@ -9,7 +9,22 @@ export default function Login({ onLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (user === "admin" && pass === "admin123") {
+
+    const trimmedUser = user.trim();
+    const trimmedPass = pass.trim();
+
+    if (!trimmedUser) {
+      setError("Username is required.");
+      return;
+    }
+
+    if (!trimmedPass) {
+      setError("Password is required.");
+      return;
+    }
+
+    if (trimmedUser === "admin" && trimmedPass === "admin123") {
+      setError("");
       onLogin();
     } else {
       setError("Invalid credentials.");
@@ -33,15 +48,18 @@ export default function Login({ onLogin }) {
         <h2 className="text-xl text-center text-amber-200 font-bold my-7">
           Login
         </h2>
+
         <div className="text-white w-full">
+          {/* Username (no space allowed) */}
           <input
             type="text"
             placeholder="Username"
             value={user}
-            onChange={(e) => setUser(e.target.value)}
+            onChange={(e) => setUser(e.target.value.replace(/\s/g, ""))}
             className="p-2 w-full border rounded mb-5"
           />
 
+          {/* Password */}
           <div className="relative w-full">
             <input
               type={showPassword ? "text" : "password"}
@@ -57,7 +75,7 @@ export default function Login({ onLogin }) {
               tabIndex={-1}
             >
               {showPassword ? (
-                // Eye Slash SVG
+                // Eye Slash
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -73,7 +91,7 @@ export default function Login({ onLogin }) {
                   />
                 </svg>
               ) : (
-                // Eye SVG
+                // Eye
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -102,9 +120,10 @@ export default function Login({ onLogin }) {
           type="submit"
           className="w-[70%] py-2 bg-[#2595d2] text-white rounded cursor-pointer hover:bg-blue-400 mt-8"
         >
-          <span className="">Sign In</span>
+          <span>Sign In</span>
         </button>
-        {error && <p className="mt-2 text-red-500 font-bold ">{error}</p>}
+
+        {error && <p className="mt-2 text-red-500 font-bold">{error}</p>}
       </form>
     </div>
   );
