@@ -103,7 +103,7 @@ export default function ShiftForm({ onSave, existing, index, onCancel }) {
             className="peer px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
           />
           {!data.start && (
-            <span className="absolute left-[35%] top-2 text-gray-400 text-sm pointer-events-none">
+            <span className="absolute left-[25%] md:left-[35%] top-2 text-gray-400 text-sm pointer-events-none">
               Start Time
             </span>
           )}
@@ -121,7 +121,7 @@ export default function ShiftForm({ onSave, existing, index, onCancel }) {
             className="peer px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
           />
           {!data.end && (
-            <span className="absolute  left-[35%] top-2 text-gray-400 text-sm pointer-events-none">
+            <span className="absolute left-[25%] md:left-[35%] top-2 text-gray-400 text-sm pointer-events-none">
               End Time
             </span>
           )}
