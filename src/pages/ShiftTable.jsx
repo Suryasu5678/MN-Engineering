@@ -5,7 +5,7 @@ export default function ShiftTable({ shifts, onUpdate, onDelete }) {
   const [editing, setEditing] = useState(null);
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto mb-20">
       <table className="w-full text-left border-collapse bg-white rounded-lg shadow-sm">
         <thead className="bg-gray-100 text-gray-700">
           <tr>
@@ -53,7 +53,7 @@ export default function ShiftTable({ shifts, onUpdate, onDelete }) {
                     <td className="px-4 py-2 space-x-2">
                       <button
                         onClick={() => setEditing(i)}
-                        className="px-3 py-1 bg-blue-100 text-blue-700 border border-blue-300 rounded-md hover:bg-blue-200 transition duration-150 text-sm  cursor-pointer"
+                        className="px-3 py-1 my-3 bg-blue-100 text-blue-700 border border-blue-300 rounded-md hover:bg-blue-200 transition duration-150 text-sm  cursor-pointer"
                       >
                         Edit
                       </button>

@@ -94,28 +94,37 @@ export default function ShiftForm({ onSave, existing, index, onCancel }) {
           )}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col relative">
           <input
             type="time"
             value={data.start}
             onChange={(e) => setData({ ...data, start: e.target.value })}
             onClick={(e) => e.target.showPicker()}
-            className="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+            className="peer px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
           />
-
+          {!data.start && (
+            <span className="absolute left-[35%] top-2 text-gray-400 text-sm pointer-events-none">
+              Start Time
+            </span>
+          )}
           {errors.start && (
             <span className="text-red-500 text-xs mt-1">{errors.start}</span>
           )}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col relative">
           <input
             type="time"
             value={data.end}
             onChange={(e) => setData({ ...data, end: e.target.value })}
             onClick={(e) => e.target.showPicker()}
-            className="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+            className="peer px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
           />
+          {!data.end && (
+            <span className="absolute  left-[35%] top-2 text-gray-400 text-sm pointer-events-none">
+              End Time
+            </span>
+          )}
           {errors.end && (
             <span className="text-red-500 text-xs mt-1">{errors.end}</span>
           )}
